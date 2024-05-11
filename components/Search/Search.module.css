@@ -1,0 +1,90 @@
+.searchDark {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 15px 0;
+    background-color: hsl(210, 21.8%, 21.6%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 4px;
+}
+
+.searchLight {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 15px 0;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 52%);
+    border-radius: 4px;
+    box-shadow: 3px 3px 20px rgba(85, 85, 85, 0.201);
+}
+
+.searchIcon {
+    width: 10%;
+    font-size: 16px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.searchWrapper {
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    align-items: start;
+    justify-content: start;
+    width: 90%;
+}
+
+.searchWrapper input[type="search"] {
+    box-sizing: border-box;
+    all: unset;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+
+.searchWrapper .searchInputDark:focus {
+    background-color: hsl(210, 21.8%, 21.6%);
+}
+
+.searchWrapper .searchInputLight:focus {
+    background-color: hsl(0, 0%, 100%);;
+}
+
+.searchWrapper .searchInputDark::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: hsl(0, 0%, 100%)
+}
+
+.searchWrapper .searchInputLight::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    color: hsl(0, 0%, 52%)
+}
+
+@media only screen and (max-width: 375px) {}
+
+@media (max-width: 576px) {
+    .searchDark {
+        width: 95%;
+    }
+
+    .searchLight {
+        width: 95%;
+    }
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}

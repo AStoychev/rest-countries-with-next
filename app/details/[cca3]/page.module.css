@@ -1,0 +1,177 @@
+.detailsDark {
+    width: 100%;
+    background-color: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+}
+
+.detailsLight {
+    width: 100%;
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+}
+
+.detailsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.detailsWrapper .buttonWrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.detailsWrapper .information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.detailsWrapper .information .imageWrapper {
+    width: 50%;
+}
+
+.detailsWrapper .information .imageWrapper img {
+    width: 530px;
+    height: 380px;
+}
+
+.detailsWrapper .information .countryDetails {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 16px;
+}
+
+.detailsWrapper .information .countryDetails h2 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.detailsWrapper .information .countryDetails .data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 35px;
+}
+
+.detailsWrapper .information .countryDetails .data ul li {
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+
+.detailsWrapper .information .countryDetails .data ul li span {
+    font-weight: 300;
+}
+
+.detailsWrapper .information .countryDetails .borders {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.detailsWrapper .information .countryDetails .borders p {
+    font-weight: 600;
+}
+
+.detailsWrapper .information .countryDetails div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+@media only screen and (max-width: 375px) {}
+
+@media (max-width: 576px) {
+    .detailsWrapper .buttonWrapper {
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+
+    .detailsWrapper .information {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .detailsWrapper .information .imageWrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .detailsWrapper .information .imageWrapper img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .detailsWrapper .information .countryDetails {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 60px;
+    }
+
+    .detailsWrapper .information .countryDetails h2 {
+        padding-bottom: 35px;
+    }
+
+    .detailsWrapper .information .countryDetails .data {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .detailsWrapper .information .countryDetails .borders {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: start;
+        padding-top: 50px;
+    }
+
+    .detailsWrapper .information .countryDetails div {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        text-align: start;
+        align-items: start;
+        justify-content: start;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (max-width: 992px) {
+    .detailsWrapper .buttonWrapper {
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+
+    .detailsWrapper .information {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .detailsWrapper .information .imageWrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .detailsWrapper .information .countryDetails {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1200px) {}

@@ -1,0 +1,82 @@
+.dropdown {
+    width: 180px;
+    position: relative;
+}
+
+.dropdownWrapper {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.dropdown .selectDark {
+    all: unset;
+    width: 100%;
+    padding: 18px 30px 18px 30px;
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    background-color: hsl(210, 21.8%, 21.6%);
+    color: hsl(0, 0%, 100%);
+    font-weight: 300;
+    border: none;
+    border-radius: 4px;
+}
+
+.dropdown .selectLight {
+    all: unset;
+    width: 100%;
+    padding: 18px 30px 18px 30px;
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(200, 15%, 8%);
+    font-weight: 300;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 3px 3px 20px rgba(85, 85, 85, 0.201);
+}
+
+.dropdown .optionsWrapperDark {
+    width: 180px;
+    position: absolute;
+    display: flex;
+    text-align: start;
+    justify-content: start;
+    flex-direction: column;
+    background-color: hsl(210, 21.8%, 21.6%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 54px;
+}
+
+.dropdown .optionsWrapperLight {
+    width: 180px;
+    position: absolute;
+    display: flex;
+    text-align: start;
+    justify-content: start;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(200, 15%, 8%);
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 3px 3px 20px rgba(85, 85, 85, 0.201);
+    top: 54px;
+}
+
+.dropdown .buttonOptions {
+    all: unset;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
