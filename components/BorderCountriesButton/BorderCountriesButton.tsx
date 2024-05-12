@@ -11,7 +11,7 @@ export default function BorderCountriesButton({ border, isDark }: ButtonProps) {
     const router = useRouter();
 
     const onBorderButtonClick = (neighbor: string) => {
-        router.push(`/${neighbor}`)
+        router.push(`/details/${neighbor}`)
     }
 
     return (

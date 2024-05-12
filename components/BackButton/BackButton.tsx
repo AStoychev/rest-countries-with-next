@@ -11,7 +11,7 @@ export default function BackButton({isDark}: ButtonProps) {
     const router = useRouter();
 
     const onBackClick = () => {
-        router.push('-1')
+        router.back();
     }
 
     return (

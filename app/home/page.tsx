@@ -7,6 +7,7 @@ import Card from '../../components/Card/Card';
 import FilterByRegion from '../../components/FilterByRegion/FilterByRegion';
 import Search from '../../components/Search/Search';
 import NotFound from '../../components/NotFound/NotFound';
+import Spinner from '../../components/Spinner/Spinner';
 
 import styles from './page.module.css';
 
@@ -27,11 +28,19 @@ export default function Home({ dark }: HomeStyle) {
     const [data, setData] = useState<Country[]>([]);
     const [show, setShow] = useState<string>('');
     const [currentCountries, setCurrentCoutries] = useState<string>('');
+
+    const [loading, setLoaging] = useState<boolean>(true);
+
     const getCountries = countryServiceFactory();
 
     const changeShow = (filterType: string, countries: string) => {
         setShow(filterType)
         setCurrentCoutries(countries)
+        setLoaging(true)
+    }
+
+    const handleCardClick = () => {
+        setLoaging(true)
     }
 
     useEffect(() => {
@@ -40,6 +49,7 @@ export default function Home({ dark }: HomeStyle) {
                 .then(result => {
                     if (result !== undefined) {
                         setData(result)
+                        setLoaging(false)
                     }
                 })
         }
@@ -48,7 +58,7 @@ export default function Home({ dark }: HomeStyle) {
                 .then(result => {
                     if (result !== undefined) {
                         setData(result)
-
+                        setLoaging(false)
                     }
                 })
         }
@@ -57,6 +67,9 @@ export default function Home({ dark }: HomeStyle) {
                 .then(result => {
                     if (result !== undefined) {
                         setData(result)
+                        setLoaging(false)
+                    } else {
+                        console.log('Error')
                     }
                 })
         }
@@ -69,23 +82,27 @@ export default function Home({ dark }: HomeStyle) {
                     <Search changeShow={changeShow} dark={dark} />
                     <FilterByRegion changeShow={changeShow} dark={dark} />
                 </div>
-                {!data.length ?
-                    <NotFound/>
+                {!data.length && !loading ?
+                    <NotFound />
                     :
-                    <div className={styles.countries}>
-                        {data && data.map(country => (
-                            <Card
-                                key={country.flag}
-                                flag={country.flag}
-                                name={country.name}
-                                population={country.population}
-                                region={country.region}
-                                capital={country.capital}
-                                cca3={country.cca3}
-                                dark={dark}
-                            />
-                        ))}
-                    </div>
+                    loading
+                        ?
+                        <Spinner />
+                        :
+                        <div className={styles.countries} onClick={handleCardClick}>
+                            {data && data.map(country => (
+                                <Card
+                                    key={country.flag}
+                                    flag={country.flag}
+                                    name={country.name}
+                                    population={country.population}
+                                    region={country.region}
+                                    capital={country.capital}
+                                    cca3={country.cca3}
+                                    dark={dark}
+                                />
+                            ))}
+                        </div>
                 }
             </div>
         </div>

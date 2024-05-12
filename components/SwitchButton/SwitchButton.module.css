@@ -1,0 +1,14 @@
+.switchButton {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.switchButton p {
+    all: unset;
+    font-weight: 600;
+}

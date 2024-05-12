@@ -1,38 +1,31 @@
+"use client"
 import Link from 'next/link';
 
-import { changeBackgroundColor } from '../../functions/changeBackgrondColor';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { isSelectedDark } from '../../lib/store/reducers/themeSlice';
 
-import { IoSunnySharp } from "react-icons/io5";
-import { IoMoonOutline } from "react-icons/io5";
+import SwitchButton from '../../components/SwitchButton/SwitchButton';
+
 import styles from './page.module.css';
 
-interface HeaderStyle {
-    switchTheme: Function
-    isDark: boolean
-}
+export default function Header() {
+    const isDark = useSelector(isSelectedDark);
 
-const LIGHT_MODE_TEXT = 'Light Mode';
-const DARK_MODE_TEXT = 'Dark Mode';
-
-export default function Header({ switchTheme, isDark }: HeaderStyle) {
-    changeBackgroundColor(isDark);
-    const onClickTheme = () => {
-        switchTheme()
-    }
+    useEffect(() => {
+        if (isDark) {
+            document.body.style.backgroundColor = 'hsl(207, 26%, 17%)';
+        } else {
+            document.body.style.backgroundColor = 'hsl(0, 0%, 98%)';
+        }
+    })
 
     return (
         <header className={isDark ? styles.headerDark : styles.headerLight}>
             <div className="container">
                 <div className={styles.headerWrapper}>
                     <Link className={styles.link} href="/">Where in the world?</Link>
-                    <div className={styles.colorModeWrapper}>
-                        {isDark ?
-                            <IoSunnySharp size='24px'/>
-                            :
-                            <IoMoonOutline size='24px' />
-                        }
-                        <button onClick={onClickTheme}>{isDark ? LIGHT_MODE_TEXT : DARK_MODE_TEXT}</button>
-                    </div>
+                    <SwitchButton />
                 </div>
             </div>
         </header>

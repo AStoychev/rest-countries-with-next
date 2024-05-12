@@ -27,18 +27,6 @@
     cursor: pointer;
 }
 
-.headerWrapper .colorModeWrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.headerWrapper .colorModeWrapper button {
-    all: unset;
-    font-weight: 600;
-    cursor: pointer;
-}
-
 @media only screen and (max-width: 375px) {}
 
 @media (max-width: 576px) {
