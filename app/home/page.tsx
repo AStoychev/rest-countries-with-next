@@ -1,5 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { isSelectedDark } from '../../lib/store/reducers/themeSlice';
 
 import usePage from '../../hooks/usePage';
 
@@ -23,15 +25,13 @@ interface Country {
     cca3: string
 }
 
-interface HomeStyle {
-    dark: boolean
-}
-
-export default function Home({ dark }: HomeStyle) {
+export default function Home() {
     const [data, setData] = useState<Country[]>([]);
     const [show, setShow] = useState<string>('');
     const [currentCountries, setCurrentCoutries] = useState<string>('');
     const [loading, setLoaging] = useState<boolean>(true);
+
+    const isDark = useSelector(isSelectedDark);
 
     const { currentPage, paginatedData, pagesSize, handlePrevious, handleNext, goToFirstPage } = usePage(data)
 
@@ -74,14 +74,14 @@ export default function Home({ dark }: HomeStyle) {
                     }
                 })
         }
-    }, [show, currentCountries])
+    }, [show, currentCountries]);
 
     return (
-        <div className={dark ? styles.homeDark : styles.homeLight}>
+        <div className={isDark ? styles.homeDark : styles.homeLight}>
             <div className="container">
                 <div className={styles.countriesSelector}>
-                    <Search changeShow={changeShow} dark={dark} />
-                    <FilterByRegion changeShow={changeShow} dark={dark} />
+                    <Search changeShow={changeShow} dark={isDark} />
+                    <FilterByRegion changeShow={changeShow} dark={isDark} />
                 </div>
                 {!data.length && !loading ?
                     <NotFound />
@@ -101,14 +101,14 @@ export default function Home({ dark }: HomeStyle) {
                                         region={country.region}
                                         capital={country.capital}
                                         cca3={country.cca3}
-                                        dark={dark}
+                                        dark={isDark}
                                     />
                                 ))}
                             </div>
                             <PageButtons
                                 handlePrevious={handlePrevious}
                                 handleNext={handleNext}
-                                dark={dark}
+                                dark={isDark}
                                 currentPage={currentPage}
                                 pagesSize={pagesSize}
                             />
