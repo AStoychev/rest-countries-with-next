@@ -20,6 +20,13 @@
     padding-top: 45px;
 }
 
+.countriesWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+    gap: 50px;
+}
+
 .countries {
     display: flex;
     flex-direction: row;
@@ -38,7 +45,7 @@
         display: flex;
         flex-direction: column;
         text-align: start;
-        align-items: start;
+        align-items: flex-start;
         justify-content: start;
         padding-top: 25px;
         gap: 20px;
@@ -50,7 +57,7 @@
         flex-wrap: wrap;
         justify-content: center;
         margin: 0 auto;
-        padding-bottom: 58px;
+        /* padding-bottom: 58px; */
     }
 }
 

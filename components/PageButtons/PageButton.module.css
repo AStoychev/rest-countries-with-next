@@ -1,0 +1,46 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pageWrapper .buttonDark {
+    all: unset;
+    padding: 5px 10px 5px 10px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(209, 23%, 22%);
+    border: 1px solid rgb(158, 156, 156);
+    cursor: pointer;
+}
+
+.pageWrapper .buttonDark:disabled {
+    cursor: not-allowed;
+}
+
+.pageWrapper .buttonLight {
+    all: unset;
+    padding: 5px 10px 5px 10px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: hsl(200, 15%, 8%);
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid rgb(158, 156, 156);
+    cursor: pointer;
+}
+
+.pageWrapper .buttonLight:disabled{
+    cursor: not-allowed;
+}
+
+
+.pageWrapper .pages {
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
+}
+
+.pageWrapper .pages p {
+    padding: 5px;
+}

@@ -1,11 +1,14 @@
 "use client"
 import { useState, useEffect } from 'react';
 
+import usePage from '../../hooks/usePage';
+
 import { countryServiceFactory } from '../../services/countryServices';
 
 import Card from '../../components/Card/Card';
 import FilterByRegion from '../../components/FilterByRegion/FilterByRegion';
 import Search from '../../components/Search/Search';
+import PageButtons from '../../components/PageButtons/PageButtons';
 import NotFound from '../../components/NotFound/NotFound';
 import Spinner from '../../components/Spinner/Spinner';
 
@@ -28,8 +31,9 @@ export default function Home({ dark }: HomeStyle) {
     const [data, setData] = useState<Country[]>([]);
     const [show, setShow] = useState<string>('');
     const [currentCountries, setCurrentCoutries] = useState<string>('');
-
     const [loading, setLoaging] = useState<boolean>(true);
+
+    const { currentPage, paginatedData, pagesSize, handlePrevious, handleNext, goToFirstPage } = usePage(data)
 
     const getCountries = countryServiceFactory();
 
@@ -37,10 +41,7 @@ export default function Home({ dark }: HomeStyle) {
         setShow(filterType)
         setCurrentCoutries(countries)
         setLoaging(true)
-    }
-
-    const handleCardClick = () => {
-        setLoaging(true)
+        goToFirstPage()
     }
 
     useEffect(() => {
@@ -89,19 +90,28 @@ export default function Home({ dark }: HomeStyle) {
                         ?
                         <Spinner />
                         :
-                        <div className={styles.countries} onClick={handleCardClick}>
-                            {data && data.map(country => (
-                                <Card
-                                    key={country.flag}
-                                    flag={country.flag}
-                                    name={country.name}
-                                    population={country.population}
-                                    region={country.region}
-                                    capital={country.capital}
-                                    cca3={country.cca3}
-                                    dark={dark}
-                                />
-                            ))}
+                        <div className={styles.countriesWrapper}>
+                            <div className={styles.countries}>
+                                {paginatedData && paginatedData.map(country => (
+                                    <Card
+                                        key={country.flag}
+                                        flag={country.flag}
+                                        name={country.name}
+                                        population={country.population}
+                                        region={country.region}
+                                        capital={country.capital}
+                                        cca3={country.cca3}
+                                        dark={dark}
+                                    />
+                                ))}
+                            </div>
+                            <PageButtons
+                                handlePrevious={handlePrevious}
+                                handleNext={handleNext}
+                                dark={dark}
+                                currentPage={currentPage}
+                                pagesSize={pagesSize}
+                            />
                         </div>
                 }
             </div>
