@@ -1,4 +1,5 @@
 "use client"
+import React from 'react';
 import { useState, useEffect } from 'react';
 
 import usePage from '../../hooks/usePage';
@@ -27,7 +28,7 @@ interface HomeStyle {
     dark: boolean
 }
 
-export default function Home({ dark }: HomeStyle) {
+const Home:React.FC<HomeStyle> = ({ dark }) => {
     const [data, setData] = useState<Country[]>([]);
     const [show, setShow] = useState<string>('');
     const [currentCountries, setCurrentCoutries] = useState<string>('');
@@ -118,3 +119,5 @@ export default function Home({ dark }: HomeStyle) {
         </div>
     )
 }
+
+export default Home;
