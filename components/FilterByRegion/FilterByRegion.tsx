@@ -13,6 +13,7 @@ const FILTER_STRING = 'Filter by Region'
 
 export default function FilterByRegion({ changeShow, dark }: DropdownProps) {
   const [selectedOption, setSelectedOption] = useState<string>(FILTER_STRING);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSelectChange = (value: string) => {
     const selectedValue = value;
@@ -21,7 +22,6 @@ export default function FilterByRegion({ changeShow, dark }: DropdownProps) {
     setIsOpen(false);
   };
 
-  const [isOpen, setIsOpen] = useState(false);
   const menuItems = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 
   return (

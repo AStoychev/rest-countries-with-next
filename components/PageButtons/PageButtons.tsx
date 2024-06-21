@@ -1,3 +1,6 @@
+"use client";
+import { useState } from 'react';
+
 import styles from './PageButton.module.css';
 
 interface PageButtonsProps {
@@ -14,7 +17,7 @@ export default function PageButtons({ handlePrevious, handleNext, dark, currentP
             <button onClick={handlePrevious} className={dark ? styles.buttonDark : styles.buttonLight} disabled={currentPage === 1}>Previous</button>
             <div className={styles.pages}>
                 <p className={styles.currentPage}>{currentPage}</p>
-                <p>/</p>
+                <p>of</p>
                 <p>{pagesSize}</p>
             </div>
             <button onClick={handleNext} className={dark ? styles.buttonDark : styles.buttonLight} disabled={currentPage === pagesSize}>Next</button>

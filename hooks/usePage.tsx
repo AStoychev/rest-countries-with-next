@@ -15,31 +15,36 @@ interface usePageProps {
 const PAGE_SIZE = 12;
 
 const usePage = (data: usePageProps[]) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [paginatedData, setPaginatedData] = useState([])
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [paginatedData, setPaginatedData] = useState([]);
+    const [pageSizes, setPageSizes] = useState<number>(12);
 
-    let pagesSize = pageSize(data, PAGE_SIZE)
+    let pagesSize = pageSize(data, pageSizes);
 
     const handlePrevious = () => {
         setCurrentPage((prev) => Math.max(prev - 1, 1));
-    }
+    };
 
     const handleNext = () => {
         setCurrentPage((prev) => Math.min(prev + 1, pagesSize));
-    }
+    };
 
     const goToFirstPage = () => {
         setCurrentPage(1)
-    }
+    };
+
+    const selectRowsPerPage = (number: number) => {
+        setPageSizes(number)
+    };
 
     useEffect(() => {
-        const startIndex = (currentPage - 1) * PAGE_SIZE;
-        const endIndex = startIndex + PAGE_SIZE;
+        const startIndex = (currentPage - 1) * pageSizes;
+        const endIndex = startIndex + pageSizes;
         const newData = data.slice(startIndex, endIndex);
         setPaginatedData(newData)
-    }, [currentPage, data])
+    }, [currentPage, data, pageSizes]);
 
-    return { currentPage, paginatedData, pagesSize, handlePrevious, handleNext, goToFirstPage };
+    return { currentPage, paginatedData, pagesSize, handlePrevious, handleNext, goToFirstPage, selectRowsPerPage };
 }
 
 export default usePage;

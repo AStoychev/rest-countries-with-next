@@ -37,6 +37,13 @@
     gap: 45px;
 }
 
+.pageWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
 @media only screen and (max-width: 375px) {}
 
 @media (max-width: 576px) {

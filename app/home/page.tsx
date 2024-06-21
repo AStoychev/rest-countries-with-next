@@ -13,6 +13,7 @@ import Search from '../../components/Search/Search';
 import PageButtons from '../../components/PageButtons/PageButtons';
 import NotFound from '../../components/NotFound/NotFound';
 import Spinner from '../../components/Spinner/Spinner';
+import RowsPerPage from '../../components/RowsPerPage/RowsPerPage';
 
 import styles from './page.module.css';
 
@@ -33,7 +34,7 @@ export default function Home() {
 
     const isDark = useSelector(isSelectedDark);
 
-    const { currentPage, paginatedData, pagesSize, handlePrevious, handleNext, goToFirstPage } = usePage(data)
+    const { currentPage, paginatedData, pagesSize, handlePrevious, handleNext, goToFirstPage, selectRowsPerPage } = usePage(data)
 
     const getCountries = countryServiceFactory();
 
@@ -105,13 +106,16 @@ export default function Home() {
                                     />
                                 ))}
                             </div>
-                            <PageButtons
-                                handlePrevious={handlePrevious}
-                                handleNext={handleNext}
-                                dark={isDark}
-                                currentPage={currentPage}
-                                pagesSize={pagesSize}
-                            />
+                            <div className={styles.pageWrapper}>
+                                <RowsPerPage dark={isDark} selectRowsPerPage={selectRowsPerPage} />
+                                <PageButtons
+                                    handlePrevious={handlePrevious}
+                                    handleNext={handleNext}
+                                    dark={isDark}
+                                    currentPage={currentPage}
+                                    pagesSize={pagesSize}
+                                />
+                            </div>
                         </div>
                 }
             </div>
