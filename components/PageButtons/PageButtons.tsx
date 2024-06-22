@@ -14,13 +14,23 @@ interface PageButtonsProps {
 export default function PageButtons({ handlePrevious, handleNext, dark, currentPage, pagesSize }: PageButtonsProps) {
     return (
         <div className={styles.pageWrapper}>
-            <button onClick={handlePrevious} className={dark ? styles.buttonDark : styles.buttonLight} disabled={currentPage === 1}>Previous</button>
+            <button
+                onClick={handlePrevious}
+                className={dark ? styles.buttonDark : styles.buttonLight}
+                disabled={currentPage === 1}>
+                Previous
+            </button>
             <div className={styles.pages}>
                 <p className={styles.currentPage}>{currentPage}</p>
                 <p>of</p>
                 <p>{pagesSize}</p>
             </div>
-            <button onClick={handleNext} className={dark ? styles.buttonDark : styles.buttonLight} disabled={currentPage === pagesSize}>Next</button>
+            <button
+                onClick={handleNext}
+                className={dark ? styles.buttonDark : styles.buttonLight}
+                disabled={currentPage === pagesSize}>
+                Next
+            </button>
         </div>
     )
 }

@@ -61,7 +61,7 @@
 }
 
 .dropdown .optionsWrapperLight {
-    width: auto;
+    width: 100%;
     position: absolute;
     display: flex;
     text-align: center;
@@ -78,7 +78,7 @@
 
 .dropdown .buttonOptions {
     all: unset;
-    width: 100%;
+    width: 60%;
     font-size: 15px;
     font-weight: 700;
     padding: 0px 5px 0px 5px;
@@ -87,7 +87,6 @@
 }
 
 .dropdown .buttonOptions:hover {
-    width: 100%;
     border-radius: 6px;
     background-color: rgba(71, 169, 234, 0.397);
 }
