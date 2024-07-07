@@ -30,7 +30,7 @@ export default function Home() {
     const [data, setData] = useState<Country[]>([]);
     const [show, setShow] = useState<string>('');
     const [currentCountries, setCurrentCoutries] = useState<string>('');
-    const [loading, setLoaging] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const isDark = useSelector(isSelectedDark);
 
@@ -41,8 +41,12 @@ export default function Home() {
     const changeShow = (filterType: string, countries: string) => {
         setShow(filterType)
         setCurrentCoutries(countries)
-        setLoaging(true)
+        setLoading(true)
         goToFirstPage()
+    };
+
+    const onCardClickHandle = () => {
+        setLoading(true)
     }
 
     useEffect(() => {
@@ -51,7 +55,7 @@ export default function Home() {
                 .then(result => {
                     if (result !== undefined) {
                         setData(result)
-                        setLoaging(false)
+                        setLoading(false)
                     }
                 })
         }
@@ -60,7 +64,7 @@ export default function Home() {
                 .then(result => {
                     if (result !== undefined) {
                         setData(result)
-                        setLoaging(false)
+                        setLoading(false)
                     }
                 })
         }
@@ -69,7 +73,7 @@ export default function Home() {
                 .then(result => {
                     if (result !== undefined) {
                         setData(result)
-                        setLoaging(false)
+                        setLoading(false)
                     } else {
                         console.log('Error')
                     }
@@ -103,6 +107,7 @@ export default function Home() {
                                         capital={country.capital}
                                         cca3={country.cca3}
                                         dark={isDark}
+                                        onCardClickHandle={onCardClickHandle}
                                     />
                                 ))}
                             </div>

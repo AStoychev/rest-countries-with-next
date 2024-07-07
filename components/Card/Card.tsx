@@ -11,14 +11,16 @@ interface CardCountryProps {
     region: string;
     capital: string;
     cca3: string;
-    dark : boolean
+    dark : boolean;
+    onCardClickHandle: Function
 }
 
-export default function Card({ flag, name, population, region, capital, cca3, dark }: CardCountryProps) {
+export default function Card({ flag, name, population, region, capital, cca3, dark, onCardClickHandle }: CardCountryProps) {
     const router = useRouter();
 
     const onCardClick = () => {
-        router.push(`/details/${cca3}`)
+        router.push(`/details/${cca3}`);
+        onCardClickHandle()
     }
 
     return (
